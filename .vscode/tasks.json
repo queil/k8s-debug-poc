@@ -15,7 +15,10 @@
                 "--output",
                 "${workspaceFolder}/dev/bin"
             ],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "presentation": {
                 "reveal": "silent"
             },
@@ -26,12 +29,10 @@
             "command": "tilt",
             "type": "shell",
             "args": [
-                "up"
+                "up",
+                "--hud=false"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "dependsOn": [
                 "build"
             ]

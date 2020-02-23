@@ -13,4 +13,4 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build /build/pkg ./
 
-ENTRYPOINT ["dotnet", "Queil.Example.App.dll"]
+ENTRYPOINT ["dotnet", "queil.k8s.debug.poc.dll"]

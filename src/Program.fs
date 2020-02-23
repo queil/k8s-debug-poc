@@ -27,6 +27,7 @@ let main argv =
     let _ , server = startWebServerAsync conf app
 
     Async.Start(server, cts.Token)
-    Console.ReadKey true |> ignore
-    cts.Cancel()
+    
+    Console.CancelKeyPress.Add(fun _ -> cts.Cancel())
+    Async.AwaitEvent Console.CancelKeyPress |> Async.RunSynchronously |> ignore 
     0

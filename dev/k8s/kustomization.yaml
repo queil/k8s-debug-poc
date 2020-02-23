@@ -7,4 +7,4 @@ resources:
 images:
 - name: queil/k8s-debug-poc
   newName: quay.io/queil/k8s-debug-poc
-  newTag: v0.1.0-alpha
+  newTag: v0.1.2-alpha
