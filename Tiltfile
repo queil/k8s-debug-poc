@@ -4,5 +4,8 @@ k8s_yaml(kustomize('./dev/k8s'))
 docker_build('quay.io/queil/k8s-debug-poc', 
                 './dev',
                 live_update=[
-                    sync('./dev/bin', '/app')
+                    sync('./dev/bin', '/app'),
+                    restart_container()
                 ])
+
+k8s_resource('k8s-debug-poc', port_forwards=8080)

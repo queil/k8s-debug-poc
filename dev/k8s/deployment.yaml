@@ -17,3 +17,5 @@ spec:
       containers:
       - image: queil/k8s-debug-poc
         name: k8s-debug-poc
+        ports:
+          - containerPort: 8080
