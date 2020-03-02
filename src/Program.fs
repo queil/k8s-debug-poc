@@ -4,7 +4,6 @@ open Suave
 open Suave.Filters
 open Suave.Operators
 open Suave.Successful
-open System.Net
 
 [<EntryPoint>]
 let main argv = 
@@ -12,14 +11,14 @@ let main argv =
     let cts = new CancellationTokenSource()
     let conf = { defaultConfig with 
                   cancellationToken = cts.Token
-                  bindings = [HttpBinding.createSimple Protocol.HTTP "0.0.0.0" 8080]
+                  bindings = [HttpBinding.createSimple Protocol.HTTP "0.0.0.0" 5000]
                }
 
     let debugHere : WebPart =
           fun (x : HttpContext) ->
             async {
               
-              return! OK "I am up!" x
+              return! OK "Hot reload like!" x
             }
 
     let app = GET >=> debugHere
