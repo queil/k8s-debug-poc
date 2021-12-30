@@ -11,7 +11,7 @@ let main argv =
     let cts = new CancellationTokenSource()
     let conf = { defaultConfig with 
                   cancellationToken = cts.Token
-                  bindings = [HttpBinding.createSimple Protocol.HTTP "0.0.0.0" 5000]
+                  bindings = [HttpBinding.createSimple Protocol.HTTP "0.0.0.0" 5172]
                }
 
     let debugHere : WebPart =
