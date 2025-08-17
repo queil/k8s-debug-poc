@@ -10,8 +10,8 @@ let main argv =
 
     let port = Environment.GetEnvironmentVariable("SUAVE_PORT")
                |> Option.ofObj
-               |> Option.map (UInt16.Parse)
-               |> Option.defaultValue 5172us
+               |> Option.map int
+               |> Option.defaultValue 5172
     
     printfn "SUAVE_PORT: %s" (port) 
 
