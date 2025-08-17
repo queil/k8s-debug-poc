@@ -13,7 +13,7 @@ let main argv =
                |> Option.map int
                |> Option.defaultValue 5172
     
-    printfn "SUAVE_PORT: %s" (port) 
+    printfn "SUAVE_PORT: %i" (port) 
 
     let cts = new CancellationTokenSource()
     let conf = { defaultConfig with 
