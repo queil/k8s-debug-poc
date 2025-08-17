@@ -8,12 +8,17 @@ open Suave.Successful
 [<EntryPoint>]
 let main argv = 
 
-    printfn "TEST_VAR: %s" (Environment.GetEnvironmentVariable("TEST_VAR")) 
+    let port = Environment.GetEnvironmentVariable("SUAVE_PORT")
+               |> Option.ofObj
+               |> Option.map (UInt16.Parse)
+               |> Option.defaultValue 5172us
+    
+    printfn "SUAVE_PORT: %s" (port) 
 
     let cts = new CancellationTokenSource()
     let conf = { defaultConfig with 
                   cancellationToken = cts.Token
-                  bindings = [HttpBinding.createSimple Protocol.HTTP "0.0.0.0" 5172]
+                  bindings = [HttpBinding.createSimple Protocol.HTTP "0.0.0.0" port]
                }
 
     let debugHere : WebPart =
