@@ -8,6 +8,8 @@ open Suave.Successful
 [<EntryPoint>]
 let main argv = 
 
+    printfn "TEST_VAR: %s" (Environment.GetEnvironmentVariable("TEST_VAR")) 
+
     let cts = new CancellationTokenSource()
     let conf = { defaultConfig with 
                   cancellationToken = cts.Token
